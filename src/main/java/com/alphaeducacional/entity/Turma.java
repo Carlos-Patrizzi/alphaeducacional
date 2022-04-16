@@ -1,10 +1,7 @@
 package com.alphaeducacional.entity;
 
 
-import lombok.Cleanup;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,7 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @Table(name = "turma")
 public class Turma {
     @Id

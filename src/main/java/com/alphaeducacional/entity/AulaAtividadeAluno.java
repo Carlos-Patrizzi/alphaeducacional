@@ -1,16 +1,14 @@
 package com.alphaeducacional.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @Table(name = "aula_atividade_aluno")
 public class AulaAtividadeAluno {
 
