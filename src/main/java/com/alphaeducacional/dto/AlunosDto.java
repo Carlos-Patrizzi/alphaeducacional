@@ -7,6 +7,9 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AlunosDto {
     private Long idAlunos;
 

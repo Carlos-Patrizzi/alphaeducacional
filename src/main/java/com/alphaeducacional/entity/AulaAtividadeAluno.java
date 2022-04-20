@@ -9,6 +9,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "aula_atividade_aluno")
 public class AulaAtividadeAluno {
 

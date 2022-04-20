@@ -1,5 +1,6 @@
 package com.alphaeducacional.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,12 +10,15 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "alunos")
 public class Aluno {
 
     @Id
     @Column(name = "idalunos")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long idAlunos;
 
     @ManyToMany(cascade = { CascadeType.ALL })

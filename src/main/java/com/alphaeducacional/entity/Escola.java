@@ -10,6 +10,9 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "escola")
 public class Escola {
     @Id

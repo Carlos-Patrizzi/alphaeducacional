@@ -8,13 +8,15 @@ import com.alphaeducacional.entity.Responsavel;
 import com.alphaeducacional.entity.Turma;
 import com.alphaeducacional.respository.AlunosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/alunos")
@@ -70,5 +72,31 @@ public class AlunosController {
 
         return ResponseEntity.ok(alunosDto);
     }
+
+    @PostMapping
+    public ResponseEntity<?> createAluno(@RequestBody Aluno aluno){
+        return ResponseEntity.ok(alunosRepository.save(aluno));
+    }
+
+    @PutMapping
+    public ResponseEntity<?> updateAluno(@RequestBody Aluno aluno){
+        return ResponseEntity.ok(alunosRepository.save(aluno));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> deleteAluno(@RequestParam(name = "id") Long id){
+
+        Aluno aluno = alunosRepository.findByIdAlunos(id);
+
+        if(Objects.nonNull(aluno)) {
+            alunosRepository.delete(aluno);
+            return ResponseEntity.ok("");
+        }else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .header("Content-Type", "application/json")
+                    .body("{ \"error\": 404, \"msg\": \"Aluno não encontrado!\" }");
+    }
+
+
 
 }
